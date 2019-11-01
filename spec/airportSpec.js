@@ -17,6 +17,6 @@ beforeEach(function(){
   it('can allow planes to takeoff and leave the airport', function(){
     airport.land(plane);
     airport.takeoff(plane);
-    expect(airport.totalPlanes()).toEqual([])
+    expect(airport.totalPlanes()).not.toContain(plane)
   });
 });
