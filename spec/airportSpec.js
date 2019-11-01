@@ -19,4 +19,11 @@ beforeEach(function(){
     airport.takeoff(plane);
     expect(airport.totalPlanes()).not.toContain(plane)
   });
+
+  it('rejects landing when airport is full', function(){
+    for (var i = 0; i < 50; i++){
+      airport.land(plane);
+    }
+    expect( function(){ airport.land(); }).toThrow(new Error('Cannot Land Airport is Full'))
+  });
 });
