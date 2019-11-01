@@ -6,7 +6,7 @@ this.MAX_CAPASITY = 50;
 }
 
 Airport.prototype.land = function(plane){
-  if(this.thePlanes.length >= 50){
+  if(this.thePlanes.length >= this.MAX_CAPASITY){
     throw new Error('Cannot Land Airport is Full')
   }else{
     this.thePlanes.push(plane);
