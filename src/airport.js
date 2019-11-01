@@ -11,6 +11,10 @@ Airport.prototype.land = function(plane){
 Airport.prototype.totalPlanes = function(){
   return this.thePlanes;
 }
+
+Airport.prototype.takeoff = function(plane){
+  this.thePlanes.pop(plane);
+}
 function Plane(){
 
 }
