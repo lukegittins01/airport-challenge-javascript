@@ -2,16 +2,14 @@
 
 function Airport(){
 this.thePlanes = [];
-this.MAX_CAPASITY = 50;
 }
 
 Airport.prototype.land = function(plane){
-  if(this.thePlanes.length >= this.MAX_CAPASITY){
+  if(this.thePlanes.length >= this.AirportCapasity()){
     throw new Error('Cannot Land Airport is Full')
   }else{
     this.thePlanes.push(plane);
   }
-
 }
 
 Airport.prototype.totalPlanes = function(){
@@ -19,9 +17,25 @@ Airport.prototype.totalPlanes = function(){
 }
 
 Airport.prototype.takeoff = function(plane){
-  this.thePlanes.pop(plane);
+  if(this.randomWeather() == 1){
+    throw new Error('Cannot takeoff weather is stormy')
+  }else{
+    this.thePlanes.pop(plane);
+  }
 }
 
+Airport.prototype.randomWeather = function(){
+  return Math.floor(Math.random() * 2);
+}
+
+Airport.prototype.AirportCapasity = function(){
+  this.capasity = window.prompt("Enter Capasity: ");
+  return this.capasity;
+}
+
+Airport.prototype.totalCapasity = function(){
+  return this.capasity;
+}
 
 function Plane(){
 
